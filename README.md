@@ -1,4 +1,4 @@
-# AWS IoT Device Simulator
+# AWS IoT Just-In-Time-Registration (JavaScript)
 
 ## Overview
 

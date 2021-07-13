@@ -1,0 +1,15 @@
+{
+  "name": "@softchef/example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "device.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@softchef/iot-just-in-time-registration": "0.0.2",
+    "aws-iot-device-sdk": "^2.2.10"
+  }
+}
