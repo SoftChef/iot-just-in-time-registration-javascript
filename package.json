@@ -1,5 +1,5 @@
 {
-  "name": "@softchef/iot-device-simulator",
+  "name": "@softchef/iot-just-in-time-registration",
   "scripts": {
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
