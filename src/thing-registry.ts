@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import { KeyInformation } from './information';
 import { keyGenerator } from './key-generator';
+import { Options } from './options';
 
 export class ThingRegistry {
 
@@ -71,7 +71,7 @@ export class ThingRegistry {
     return this;
   }
 
-  generateDeviceCertificate(thingName: string, information?: KeyInformation): boolean {
+  generateDeviceCertificate(thingName: string, information?: Options): boolean {
     if (!this.hasCaCertificateFile) {
       throw `${this.certsPath}/${this.caCertificate} file not founded.`;
     }
@@ -115,7 +115,7 @@ export class ThingRegistry {
     return true;
   }
 
-  getThingName(): string {
+  get thingName(): string {
     let deviceCertificatePem = fs.readFileSync(
       this.deviceCertificatePath,
     ).toString();

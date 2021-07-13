@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as forge from 'node-forge';
-import { KeyInformation } from './information';
+import { Options } from './options';
 
 class KeyGenerator {
   generateDeviceKeyPair() {
@@ -11,7 +11,7 @@ class KeyGenerator {
     };
     return keyPair;
   }
-  generateDeviceCsr(publicKey: string, privateKey: string, thingName: string, information?: KeyInformation): string {
+  generateDeviceCsr(publicKey: string, privateKey: string, thingName: string, information?: Options): string {
     let csr = forge.pki.createCertificationRequest();
     csr.publicKey = forge.pki.publicKeyFromPem(publicKey);
     csr.setSubject([{
