@@ -1,4 +1,6 @@
-const { TypeScriptAppProject, NpmAccess, ProjectType } = require('projen');
+const { DependenciesUpgradeMechanism, NpmAccess, ProjectType, TypeScriptAppProject } = require('projen');
+
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new TypeScriptAppProject({
   author: 'softchef-iot-lab',
@@ -22,6 +24,17 @@ const project = new TypeScriptAppProject({
   devDeps: [
     'aws-iot-device-sdk',
   ],
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    ignoreProjen: false,
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      secret: AUTOMATION_TOKEN,
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['MinCheTsai'],
+  },
   tsconfig: {
     compilerOptions: {
     },
